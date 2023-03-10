@@ -11,13 +11,30 @@
 
 Odoo addons to ease the development experience
 
+## Installation
+
+You can simply install these modules like every other Odoo module; either manually or through the pip tools.
+
+## Usage
+
+The modules in this repository are meant to be used by developers, and are not meant to be used by end users.
+Some, like `base_pretty_print`, only offer functions to be used in shell mode.
+Others include a wizard that can be used via the GUI.
+
 <!-- /!\ do not modify below this line -->
 
 <!-- prettier-ignore-start -->
 
 [//]: # (addons)
 
-This part will be replaced when running the oca-gen-addons-table script from OCA/maintainer-tools.
+Available addons
+----------------
+addon | version | maintainers | summary
+--- | --- | --- | ---
+[base_ir_export](base_ir_export/) | 16.0.1.0.0 |  | Module providing a wizard to create exports and views on ir.exports
+[base_pretty_print](base_pretty_print/) | 16.0.1.0.0 |  | Base module that provide display functions on the base model
+[base_viewify](base_viewify/) | 16.0.1.0.0 |  | Base module to generate Odoo views
+[base_xmlify](base_xmlify/) | 16.0.1.0.0 |  | Base module that provide an xmlify method on all models
 
 [//]: # (end addons)
 
