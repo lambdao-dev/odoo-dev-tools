@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2023 len-foss/Lambdao
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+  <record model="ir.ui.view" id="view_form_view_export_wizard">
+    <field name="model">view.export.wizard</field>
+    <field name="name">view.export.wizard.form</field>
+    <field name="arch" type="xml">
+      <form string="Export to View">
+        <header />
+        <group>
+          <field name="model_id" />
+          <field name="filename" />
+          <field name="destination" />
+        </group>
+        <group>
+          <field name="form" />
+          <field name="tree" />
+          <field name="search_view" />
+        </group>
+        <group>
+          <field name="module_id" />
+          <field
+                        name="force_primary"
+                        attrs="{'invisible': [('module_id', '=', False)]}"
+                    />
+          <field name="is_inherit" invisible="1" />
+          <field
+                        name="parent_menu"
+                        attrs="{'invisible': [('is_inherit', '=', False)]}"
+                    />
+          <field
+                        name="parent_form_view"
+                        attrs="{'invisible': [('is_inherit', '=', True)]}"
+                    />
+          <field
+                        name="parent_tree_view"
+                        attrs="{'invisible': [('is_inherit', '=', True)]}"
+                    />
+        </group>
+        <footer>
+            <button string="Export" name="viewify" type="object" class="btn-primary" />
+            <button string="Cancel" class="btn-secondary" special="cancel" />
+        </footer>
+      </form>
+    </field>
+  </record>
+  <record model="ir.actions.act_window" id="window_action_view_export_wizard">
+    <field name="res_model">view.export.wizard</field>
+    <field name="name">Export to View</field>
+    <field name="view_mode">form,tree</field>
+    <field name="view_id" ref="view_form_view_export_wizard" />
+    <field name="target">new</field>
+  </record>
+  <menuitem
+        id="menu_view_export_wizard"
+        action="window_action_view_export_wizard"
+        name="Export to View"
+        parent="base.next_id_9"
+    />
+</odoo>
